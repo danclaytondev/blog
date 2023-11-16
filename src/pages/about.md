@@ -3,34 +3,16 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+I'm a Research Software Engineer at the [STFC Hartree Centre](https://www.hartree.stfc.ac.uk/), where a work on quite a varied range of projects. I have spent a lot of time working recently in the life sciences domain, building software to support bioinformatics work and machine learning.
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
-
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
-
-<div>
-  <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+My background is in Physics (I studied at the University of Liverpool), and I maintain an interest in that domain, and have spent quite a lot of time working with machine learning.
 
 ## Tech Stack
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+I work with whatever tech stack is the most appropriate for a project with some core themes recently of:
 
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+- Python and Typescript full-stack apps
+- Containerisation
+- Data engineering + processing pipelines
+- PostgreSQL for relational databases
+- Cloud deployment of containers (APIs etc), serverless functions
