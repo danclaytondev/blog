@@ -1,7 +1,7 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: import.meta.env.URL ?? "http://localhost:4321", // replace this with your deployed domain
+  website: import.meta.env.URL ?? "https://blog.danielclayton.co.uk", // replace this with your deployed domain
   author: "Dan Clayton",
   desc: "A simple software blog.",
   title: "Dan Clayton's Blog",
