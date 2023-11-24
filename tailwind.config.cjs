@@ -56,6 +56,22 @@ module.exports = {
       },
       transparent: "transparent",
     },
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            blockquote: {
+              fontStyle: 'normal',
+              fontWeight: 'inherit',
+              '::before': {
+                display: 'none'
+              },
+              opacity: 0.95
+            }
+          },
+        },
+      },
+    },
     // },
   },
   plugins: [require("@tailwindcss/typography")],
