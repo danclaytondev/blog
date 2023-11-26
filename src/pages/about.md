@@ -3,9 +3,9 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-I'm a Research Software Engineer at the [STFC Hartree Centre](https://www.hartree.stfc.ac.uk/), where a work on quite a varied range of projects. I have spent a lot of time working recently in the life sciences domain, building software to support bioinformatics work and machine learning.
+I'm a Research Software Engineer at the [STFC Hartree Centre](https://www.hartree.stfc.ac.uk/), where I work on quite a varied range of projects. I have spent a lot of time working recently in the life sciences domain, building software to support bioinformatics work and machine learning.
 
-My background is in Physics (I studied at the University of Liverpool), and I maintain an interest in that domain, and have spent quite a lot of time working with machine learning.
+My background is in Physics (I studied at the University of Liverpool).
 
 ## Tech Stack
 
