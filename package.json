@@ -12,13 +12,15 @@
     "format": "prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss",
     "cz": "cz",
     "prepare": "husky install",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "spell": "cspell src/content/**/*.md"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
     "@astrojs/rss": "^3.0.0",
     "@resvg/resvg-js": "^2.4.1",
     "astro": "^3.1.3",
+    "cspell": "^8.0.0",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
     "remark-collapse": "^0.1.2",

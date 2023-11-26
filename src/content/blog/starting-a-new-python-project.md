@@ -86,7 +86,7 @@ There are a few different ways to do this but the nicest I have found so far whe
 
 There are a few options for installing poe (see the docs). You can install it globally using `pipx` or `pip` and then run it using `poe` in your terminal.
 
-Or you can install it _within_ this project, and you can use `poe` in your terminal if you have this project's virtual environment activated (`poetry shell`), or using poetry to execute it inside the environemnt with `poetry run poe`.
+Or you can install it _within_ this project, and you can use `poe` in your terminal if you have this project's virtual environment activated (`poetry shell`), or using poetry to execute it inside the environment with `poetry run poe`.
 
 Let's install it inside this project (but you might prefer to do it globally):
 
