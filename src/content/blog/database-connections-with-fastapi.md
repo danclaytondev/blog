@@ -1,7 +1,7 @@
 ---
 author: Dan Clayton
 pubDatetime: 2024-07-28T17:30:00Z
-title: Database Connections with FastAPI (Postgres)
+title: Psycopg Database Connections with FastAPI
 postSlug: database-connections-with-fastapi
 featured: false
 draft: false
