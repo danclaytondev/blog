@@ -107,7 +107,7 @@ async def add_visit(conn=Depends(get_conn)):
 
 The problem with our setup is that we need to close our connection still, so we are back to using the manual method of closing connections and committing transactions.
 
-How can automatically close our connection with our FastAPI dependency? Using [dependencies with yield](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/).
+How can we automatically close our connection with our FastAPI dependency? Using [dependencies with yield](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/).
 
 By using a yield statement, FastAPI will inject the yielded object into the path operations, and then continue from the yield after the HTTP request has been returned.
 
