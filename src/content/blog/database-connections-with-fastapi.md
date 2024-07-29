@@ -8,7 +8,7 @@ draft: false
 description: Sharing database connections between requests with FastAPI
 ---
 
-When building an API, especially with something like FastAPI, it's rare that you don't need to connect to a database. Postgres in an incredibly popular, well tested, and powerful database - and it seems it's popularity is still growing. How you connect to that database can be an important component of your API service; opening a new connection to a Postgres server is much more costly than sending a query through an already established one. In general, you should keep in mind that connections aren't free performance wise. They are slow (relatively) to open, and having too many open is _very_ expensive for your postgres server, so don't forget to close them. I would at that if you're building a simple FastAPI server with small load, you don't need to worry about this too much - premature optimisation is bad!
+When building an API, especially with something like FastAPI, it's rare that you don't need to connect to a database. Postgres in an incredibly popular, well tested, and powerful database - and it seems it's popularity is still growing. How you connect to that database can be an important component of your API service; opening a new connection to a Postgres server is much more costly than sending a query through an already established one. In general, you should keep in mind that connections aren't free performance wise. They are slow (relatively) to open, and having too many open is _very_ expensive for your postgres server, so don't forget to close them. I would say that if you're building a simple FastAPI server with small load, you don't need to worry about this too much - premature optimisation is bad!
 
 There are different choices you can make, with none being suitable for every use case. A fairly simple and reliable pattern is to open a new connection at the start of an API request, and reuse that connection for every query you need to make, before closing the connection when that request has been returned. On the other end of the spectrum, a tool such as [pg_bouncer](https://www.pgbouncer.org/) maintains a pool of connections itself, and shares them between requests sent to pg_bouncer as a proxy.
 
@@ -212,6 +212,8 @@ async def add_visit(conn = Depends(get_conn)):
     return {"message": "Visit logged"}
 
 ```
+
+The code is available on [Github](https://github.com/danclaytondev/fastapi-database-connections).
 
 ### Beware how many connections you are opening
 
