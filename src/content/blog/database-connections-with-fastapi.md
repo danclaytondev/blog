@@ -199,7 +199,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 async def get_conn():
-    async with await psycopg.AsyncConnection.connect(conn_string) as conn:
+    async with await pool.connection() as conn:
 	    yield conn
 
 @app.get("/visit/")
