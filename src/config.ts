@@ -23,6 +23,12 @@ export const SOCIALS: SocialObjects = [
     name: "Github",
     href: "https://github.com/danclaytondev/",
     linkTitle: ` ${SITE.author} on Github`,
-    active: false,
+    active: true,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/d-clayton/",
+    linkTitle: ` ${SITE.author} on LinkedIn`,
+    active: true,
   },
 ];
