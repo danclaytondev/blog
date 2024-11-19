@@ -4,6 +4,8 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Layout from "./Layout.astro";
+import { SOCIALS } from "@config";
+import Socials from "@components/Socials.astro";
 
 export interface Props {
   frontmatter: {
@@ -11,6 +13,8 @@ export interface Props {
     description?: string;
   };
 }
+
+const socialCount = SOCIALS.filter(social => social.active).length;
 
 const { frontmatter } = Astro.props;
 ---
@@ -22,6 +26,17 @@ const { frontmatter } = Astro.props;
     <section id="about" class="prose mb-28 max-w-3xl prose-img:border-0">
       <h1 class="text-2xl sm:text-3xl">{frontmatter.title}</h1>
       <slot />
+      <div>
+        {
+          // only display if at least one social link is enabled
+          socialCount > 0 && (
+            <div class="social-wrapper">
+              <div class="social-links">Social Links:</div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
     </section>
   </main>
   <Footer />
