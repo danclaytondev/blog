@@ -334,7 +334,7 @@ If you want to try this out, the notebook I've used and duckdb database file are
 I have used lots of other people's work here so just want to credit some of them:
 
 - obviously [XKCD](https://xkcd.com) (Randall Munroe)
-- [explainxkcd.com](explainxkcd.com) for explanations and transcriptions
+- [explainxkcd.com](https://explainxkcd.com) for explanations and transcriptions
 - [HuggingFace dataset of the above](https://huggingface.co/datasets/olivierdehaene/xkcd)
 - [Nomic AI models](https://huggingface.co/nomic-ai/nomic-embed-vision-v1.5)
 
