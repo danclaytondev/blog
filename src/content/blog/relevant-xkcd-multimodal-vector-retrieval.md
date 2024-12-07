@@ -105,13 +105,16 @@ duckdb.sql(
 ```
 
 <div><style>
+.table-wrapper {
+    overflow-x: scroll;
+}
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
   text-align: right;
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (3, 4)</small><table border="1" class="dataframe"><thead><tr><th>id</th><th>title</th><th>image_url</th><th>explanation</th></tr><tr><td>i64</td><td>str</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>1201</td><td>&quot;Integration&nbsp;by&nbsp;Parts&quot;</td><td>&quot;https://imgs.xkcd.com/comics/i…</td><td>&quot;Integration&nbsp;by&nbsp;parts&nbsp;is&nbsp;an&nbsp;int…</td></tr><tr><td>1202</td><td>&quot;Girls&nbsp;and&nbsp;Boys&quot;</td><td>&quot;https://imgs.xkcd.com/comics/g…</td><td>&quot;This&nbsp;comic&nbsp;is&nbsp;a&nbsp;play&nbsp;on&nbsp;the&nbsp;po…</td></tr><tr><td>1203</td><td>&quot;Time&nbsp;Machines&quot;</td><td>&quot;https://imgs.xkcd.com/comics/t…</td><td>&quot;Cueball&nbsp;activates&nbsp;a&nbsp;time&nbsp;machi…</td></tr></tbody></table></div>
+<small>shape: (3, 4)</small><div class="table-wrapper"><table border="1" class="dataframe"><thead><tr><th>id</th><th>title</th><th>image_url</th><th>explanation</th></tr><tr><td>i64</td><td>str</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>1201</td><td>&quot;Integration&nbsp;by&nbsp;Parts&quot;</td><td>&quot;https://imgs.xkcd.com/comics/i…</td><td>&quot;Integration&nbsp;by&nbsp;parts&nbsp;is&nbsp;an&nbsp;int…</td></tr><tr><td>1202</td><td>&quot;Girls&nbsp;and&nbsp;Boys&quot;</td><td>&quot;https://imgs.xkcd.com/comics/g…</td><td>&quot;This&nbsp;comic&nbsp;is&nbsp;a&nbsp;play&nbsp;on&nbsp;the&nbsp;po…</td></tr><tr><td>1203</td><td>&quot;Time&nbsp;Machines&quot;</td><td>&quot;https://imgs.xkcd.com/comics/t…</td><td>&quot;Cueball&nbsp;activates&nbsp;a&nbsp;time&nbsp;machi…</td></tr></tbody></table></div>
 
 Now I have the data to generate embeddings (we will also need to download the image from the URL so we can load them into the vision embedding model, its in the full notebook). Before going about calculating embeddings for every comic straight away, I wanted to test whether the vision model could get much meaning from each comic, given that they all look pretty similar (stick people, a few panels and often computers etc).
 
@@ -135,7 +138,7 @@ similarity_matrix = test_comic_embeddings @ test_explanation_embeddings.T
 
 ![Plot showing a matrix of inner products between embeddings of XKCD images and their text explanations](../images/matrix.png)
 
-The absolute values on the color scale are not important, but with the 'hot' looking scores along the diagonal, we can see that the vision embeddings of each comic and its text description are much more related than they are to other XKCDs. The diagonal of the matrix represents the similarity between each comic's image embedding and its own corresponding text description embedding. This is very promising! We would hope to see something like this, the content in the description is extremely semantically similar to what is in the image.
+The absolute values on the color scale are not important, but with the darker scores along the diagonal, we can see that the vision embeddings of each comic and its text description are much more related than they are to other XKCDs. The diagonal of the matrix represents the similarity between each comic's image embedding and its own corresponding text description embedding. This is very promising! We would hope to see something like this, the content in the description is extremely semantically similar to what is in the image.
 
 ## Generating embeddings for lots of comics
 
@@ -251,7 +254,7 @@ duckdb.execute(
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (3, 3)</small><table border="1" class="dataframe"><thead><tr><th>id</th><th>title</th><th>similarity</th></tr><tr><td>i64</td><td>str</td><td>f32</td></tr></thead><tbody><tr><td>927</td><td>&quot;Standards&quot;</td><td>0.740518</td></tr><tr><td>1974</td><td>&quot;Conversational&nbsp;Dynamics&quot;</td><td>0.666445</td></tr><tr><td>522</td><td>&quot;Google&nbsp;Trends&quot;</td><td>0.663124</td></tr></tbody></table></div>
+<small>shape: (3, 3)</small><div class="table-wrapper"><table border="1" class="dataframe"><thead><tr><th>id</th><th>title</th><th>similarity</th></tr><tr><td>i64</td><td>str</td><td>f32</td></tr></thead><tbody><tr><td>927</td><td>&quot;Standards&quot;</td><td>0.740518</td></tr><tr><td>1974</td><td>&quot;Conversational&nbsp;Dynamics&quot;</td><td>0.666445</td></tr><tr><td>522</td><td>&quot;Google&nbsp;Trends&quot;</td><td>0.663124</td></tr></tbody></table></div>
 
 So our most relevant comic according to an embedding similarity is this:
 
@@ -310,11 +313,15 @@ duckdb.execute(
 ).pl()
 ```
 
-| id   | title                                            | image_similarity | text_similarity | combined_similarity |
+<div class="table-wrapper">
+
+| id   | title                                            | image similarity | text similarity | combined similarity |
 | ---- | ------------------------------------------------ | ---------------- | --------------- | ------------------- |
 | 1949 | [Fruit Collider](https://xkcd.com/1949/)         | 0.0558           | 0.6635          | 0.2381              |
 | 388  | [Fuck Grapefruit](https://xkcd.com/388/)         | 0.0588           | 0.6228          | 0.2280              |
 | 236  | [Collecting Double-Takes](https://xkcd.com/236/) | 0.0419           | 0.6457          | 0.2230              |
+
+</div>
 
 In this example I have added a weighting to consider the similarity to the images more for sorting purposes. I found that whenever comparing across media (image to text etc) the similarity tended to be lower than text-to-text and image-to-image which isn't surprising. You can play around with the weightings or return the top result based on both image and text similarities.
 
