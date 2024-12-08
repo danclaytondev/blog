@@ -227,6 +227,8 @@ Now we have a DuckDB table with XKCD IDs and embedding vectors. We can use the d
 
 > As mentioned above, using `array_inner_product` gives exactly the same result in this case.
 
+### Text-to-text
+
 I want find comics related to the phrase: **"there are lots of different competing vector databases let's make one to become the standard"**.
 
 ```python
@@ -264,7 +266,7 @@ Maybe not such a good idea to make a new standard vector database then.
 
 As another example, if we search for **"search_query:how have you never heard of this before?"**, we get [Ten Thousand (1053)](https://xkcd.com/1053/). That seems like it's working well.
 
-### Multimodal retrieval
+### Image-to-image
 
 The two above examples above are just comparing text embeddings to text embeddings. We can use image embeddings too. I first want to use a query image to find relevant XKCD images. Here is my query image of choice:
 
@@ -293,6 +295,8 @@ The query code is almost identical, we just embed the image, pass it as a parame
 The top results from the vector search are [799 (below)](https://xkcd.com/799/), [750](https://xkcd.com/750/) and [997](https://xkcd.com/997/), which all include a drawing of a newspaper. So that seems pretty relevant to my query!
 
 ![XKCD 799, it includes a drawing of a newspaper and the headline is about Stephen Hawking](https://imgs.xkcd.com/comics/stephen_hawking.png)
+
+### Cross-modal queries
 
 Finally, we can compare a query to both the image and text embeddings in the database (or even the other way around):
 
