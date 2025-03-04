@@ -22,11 +22,11 @@ When a chat completion, embedding or tokenisation is received, Ollama handles th
 
 ## Grammars
 
-Previously with ollama, you can pass a `format` parameter into the API endpoint as `json` (just the string literal).
+Released in an earlier version of ollama, you can pass a `"format": "json"` parameter (just the string literal).
 
 If you set format to `json`, how does Ollama 'make' the model respond with JSON?
 
-You can always ask the model to produce JSON in your prompt, which does work to a degree, but it can break down and be unreliable.
+You could always ask the model to produce JSON in your prompt, which does work to a degree, but it can break down and be unreliable.
 
 Instead, [llama.cpp supports the use of 'GBNF grammars'](https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md) to constrain a model output, so you can force the model to only produce valid JSON, or speak only in emoji etc. Llama cpp has actually supported grammars for a relatively long time.
 
