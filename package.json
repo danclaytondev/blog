@@ -30,7 +30,7 @@
     "remark-math": "^5.0.0",
     "remark-toc": "^9.0.0",
     "satori": "^0.10.8",
-    "sharp": "^0.33.5",
+    "sharp": "^0.34.1",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   },
@@ -64,6 +64,11 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,mdx,json}": [
       "prettier --plugin-search-dir=. --write"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
     ]
   },
   "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
