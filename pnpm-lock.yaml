@@ -14,6 +14,9 @@ importers:
       '@astrojs/rss':
         specifier: ^3.0.0
         version: 3.0.0
+      '@fontsource-variable/plus-jakarta-sans':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@resvg/resvg-js':
         specifier: ^2.4.1
         version: 2.4.1
@@ -817,6 +820,9 @@ packages:
   '@fastify/busboy@2.1.0':
     resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
     engines: {node: '>=14'}
+
+  '@fontsource-variable/plus-jakarta-sans@5.2.5':
+    resolution: {integrity: sha512-nkAWzq+QWBSK+52HIlNCyoh5YXrZ/AwV1OqzxZz6VnPmsIpU68B1bf1YT8heRAJKY1kXNtWIJ9jJMYVaStgf+w==}
 
   '@humanwhocodes/config-array@0.11.13':
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
@@ -4958,6 +4964,8 @@ snapshots:
   '@eslint/js@8.50.0': {}
 
   '@fastify/busboy@2.1.0': {}
+
+  '@fontsource-variable/plus-jakarta-sans@5.2.5': {}
 
   '@humanwhocodes/config-array@0.11.13':
     dependencies:

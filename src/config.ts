@@ -6,7 +6,7 @@ export const SITE: Site = {
   desc: "A simple software blog.",
   title: "Dan Clayton's Blog",
   lightAndDarkMode: false,
-  postPerPage: 5,
+  postPerPage: 10,
 };
 
 export const LOCALE = ["en-GB"]; // set to [] to use the environment default

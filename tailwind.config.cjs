@@ -6,6 +6,7 @@ function withOpacity(variableName) {
     return `rgb(var(${variableName}))`;
   };
 }
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -57,6 +58,9 @@ module.exports = {
       transparent: "transparent",
     },
     extend: {
+      fontFamily: {
+        'sans': ['"Plus Jakarta Sans Variable"', ...defaultTheme.fontFamily.sans],
+      },
       typography: {
         DEFAULT: {
           css: {
